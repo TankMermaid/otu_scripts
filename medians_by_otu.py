@@ -10,7 +10,7 @@ import pysurvey as ps, numpy as np, pandas as pd
 import argparse
 
 if __name__ == '__main__':
-	p = argparse.ArgumentParser(description='get medians')
+	p = argparse.ArgumentParser(description='get medians by otu')
 	p.add_argument('table', help='input otu table')
 	p.add_argument('out', help='output medians list')
 	args = p.parse_args()
