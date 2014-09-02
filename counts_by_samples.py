@@ -15,4 +15,5 @@ if __name__ == '__main__':
 
     table = ps.read_txt(args.table, verbose=False, T=False)
     sums = table.apply(np.sum)
-    print sums
+    for name, val in sums.iteritems():
+        print "{}\t{}".format(name, val)
