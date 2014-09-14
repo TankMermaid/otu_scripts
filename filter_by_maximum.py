@@ -23,7 +23,7 @@ if __name__ == '__main__':
 	if args.log:
 		args.min = 10.0 ** (-args.log)
 
-	# filter columns if the median is below the specified min
+	# filter columns if the maximum is below the specified min
 	criterion = (np.max, lambda x,y: x>y, args.min)
 	table = ps.filter_by_vals(table, criterion)
 

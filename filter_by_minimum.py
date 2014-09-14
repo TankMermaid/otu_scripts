@@ -23,8 +23,6 @@ if __name__ == '__main__':
 	if args.log:
 		args.min = 10.0 ** (-args.log)
 
-	print "comparing medians to {}".format(args.min)
-
 	# filter columns if the median is below the specified min
 	criterion = (np.min, lambda x,y: x>y, args.min)
 	table = ps.filter_by_vals(table, criterion)
