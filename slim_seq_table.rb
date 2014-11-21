@@ -20,7 +20,11 @@ open(params[:table], 'w') do |table|
         table.write(line)
       else
         # find the sequence
-        seq = line.match(/^[A-Z]+/)[0]
+        m = line.match(/^[A-Z]+/)
+
+        raise RuntimeError, "no seq found on line #{$.}" if m.nil?
+
+        seq = m[0]
         seq_n = $. - 1
         seq_name = "seq#{seq_n}"
         table.write(line.sub(seq, seq_name))
