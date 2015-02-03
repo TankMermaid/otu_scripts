@@ -14,6 +14,7 @@ if __name__ == '__main__':
     args = p.parse_args()
 
     table = ps.read_txt(args.table, verbose=False, T=True)
-    sums = table.apply(np.sum).values
-    for s in sums:
-        print s
+    sums = table.apply(np.sum)
+
+    for name, val in sums.iteritems():
+        args.output.write("{}\t{}\n".format(name, val))

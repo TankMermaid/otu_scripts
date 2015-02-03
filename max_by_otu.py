@@ -14,6 +14,7 @@ if __name__ == '__main__':
     args = p.parse_args()
 
     table = ps.read_txt(args.table, verbose=False, T=True)
-    vals = table.apply(np.max).values
-    for x in vals:
-        print x
+    vals = table.apply(np.max)
+
+    for name, val in vals.iteritems():
+        args.output.write("{}\t{}\n".format(name, val))
