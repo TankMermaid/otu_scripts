@@ -4,7 +4,7 @@
 author: scott w olesen (swo@mit.edu)
 '''
 
-import pysurvey as ps, numpy as np, pandas as pd
+import numpy as np, pandas as pd
 import argparse, sys
 
 if __name__ == '__main__':
@@ -13,7 +13,7 @@ if __name__ == '__main__':
     p.add_argument('-o', '--output', default=sys.stdout, type=argparse.FileType('w'), help='output file (default stdout)')
     args = p.parse_args()
 
-    table = ps.read_txt(args.table, verbose=False, T=True)
+    table = pd.read_table(args.table, index_col=0).transpose()
     sums = table.apply(np.sum)
 
     for name, val in sums.iteritems():

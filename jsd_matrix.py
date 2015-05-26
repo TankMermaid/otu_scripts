@@ -25,7 +25,7 @@ def distance_matrix(table):
 
     dist = pd.DataFrame(index=table.columns, columns=table.columns)
 
-    for col1, col2 in itertools.combinations(table.columns.values, 2):
+    for col1, col2 in itertools.combinations_with_replacement(table.columns.values, 2):
         d = jsd(table[col1], table[col2])
         dist[col1][col2] = d
         dist[col2][col1] = d
